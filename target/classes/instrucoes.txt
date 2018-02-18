@@ -1,0 +1,54 @@
+1. Ler o arquivo CSV das cidades para a base de dados;
+CidadeResource.init()
+
+2. Retornar somente as cidades que são capitais ordenadas por nome;
+http://localhost:8080/empresa/xpto/cidades/capitais
+
+3. Retornar o nome do estado com a maior e menor quantidade de cidades e a quantidade de cidades;
+http://localhost:8080/empresa/xpto/cidades/estadoMenosCidades
+http://localhost:8080/empresa/xpto/cidades/estadoMaisCidades
+
+4. Retornar a quantidade de cidades por estado;
+http://localhost:8080/empresa/xpto/cidades/quantidadePorEstado
+
+5. Obter os dados da cidade informando o id do IBGE;
+http://localhost:8080/empresa/xpto/cidades/{IdIbge}
+
+6. Retornar o nome das cidades baseado em um estado selecionado;
+http://localhost:8080/empresa/xpto/estados/SP
+
+7. Permitir adicionar uma nova Cidade;
+POST http://localhost:8080/empresa/xpto/cidades
+    {
+        "idIbge": 1100015,
+        "estado": "AA",
+        "nome": "Alta Floresta D'Oeste",
+        "nomeSemAcento": "Alta Floresta D'Oeste",
+        "nomeAlternativo": "",
+        "capital": "",
+        "microregiao": "Cacoal",
+        "mesoregiao": "Leste Rondoniense",
+        "latitude": -11.93554,
+        "longitude": -61.999825
+    }
+
+8. Permitir deletar uma cidade;
+DELETE http://localhost:8080/empresa/xpto/cidades/excluir/{IdIbge}
+
+9. Permitir selecionar uma coluna (do CSV) e através dela entrar com uma string para filtrar. retornar assim todos os objetos que contenham tal string;
+http://localhost:8080/empresa/xpto/cidades/{nomeCampo}/{valorCampo}
+EXEMPLO http://localhost:8080/empresa/xpto/cidades/capital/true
+EXEMPLO http://localhost:8080/empresa/xpto/cidades/estado/SP
+EXEMPLO http://localhost:8080/empresa/xpto/cidades/nome/Barra%20Bonita
+
+10. Retornar a quantidade de registro baseado em uma coluna. Não deve contar itens iguais;
+http://localhost:8080/empresa/xpto/cidades/{nomeCampo}
+EXEMPLO http://localhost:8080/empresa/xpto/cidades/nome
+EXEMPLO http://localhost:8080/empresa/xpto/cidades/estado
+
+11. Retornar a quantidade de registros total;
+http://localhost:8080/empresa/xpto/cidades/quantidadeRegistro
+
+12. Dentre todas as cidades, obter as duas cidades mais distantes uma da outra com base na localização (distância em KM em linha reta);
+http://localhost:8080/empresa/xpto/cidades/maisDistantes
+
